@@ -1,6 +1,7 @@
-get_temperatures <- function(mon_url) {
+get_temperatures <- function(mon_url,
+                             annees) {
   purrr::map2_dfr(mon_url,
-                  2022,
+                  annees,
                   function(base_url,z){
                     
                     meteo1 <-
