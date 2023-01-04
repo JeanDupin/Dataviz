@@ -1,85 +1,60 @@
+# Packages ----
 
 library(rvest)
+library(ggplot2)
+
+
+# Fonction & Données ----
+
+source("Warming stripes/Fonction_get_temperatures.R")
+
+
+dijon <-
+  get_temperatures("https://www.historique-meteo.net/france/bourgogne/dijon/")
+
+marseille <-
+  get_temperatures("https://www.historique-meteo.net/france/provence-alpes-c-te-d-azur/marseille/")
+
+sainte <-
+  get_temperatures("https://www.historique-meteo.net/france/lyonnais/saint-etienne/")
+
+lille <-
+  get_temperatures("https://www.historique-meteo.net/france/nord-pas-de-calais/lille/")
 
 temperatures <-
-  purrr::map_dfr(2022,
-             function(z){
-               
-               meteo1 <-
-                 paste0("https://www.historique-meteo.net/france/bourgogne/dijon/",
-                        z,
-                        "/")
-               
-               purrr::map2_dfr(meteo1,
-                               1:12,
-                              function(zb,y) {
-                                if (y < 10) {
-                                  meteo <-
-                                    paste0(zb,
-                                           "0",
-                                           y,
-                                           "/")
-                                } else {
-                                  meteo <-
-                                    paste0(zb,
-                                           y,
-                                           "/")
-                                }
-                                
-                                
-                                
-                                dijon <- read_html(meteo) |>
-                                  html_nodes(xpath = "/html/body/div[1]/main/section[3]/div/div/div[1]/table[2]/tbody") |>
-                                  html_children()
-                                
-                                purrr::map_dfr(dijon,
-                                               function(x) {
-                                                 a <-
-                                                   x |>
-                                                   html_text() |>
-                                                   stringr::str_sub(1, 10)
-                                                 
-                                                 b <-
-                                                   x |>
-                                                   html_text() |>
-                                                   stringr::str_extract(pattern = "Températures : .*C") |>
-                                                   stringr::str_remove("Températures : ") |>
-                                                   stringr::str_remove_all("°C") |>
-                                                   stringr::str_split_fixed("/", 2) |>
-                                                   as.numeric() |>
-                                                   mean()
-                                                 
-                                                 
-                                                 data.frame(date2 = a,
-                                                            temp = b)
-                                               })
-                                
-                                
-                              }) 
-               
-               
-               
-             }) |> 
-  dplyr::mutate(date2 = lubridate::dmy(date2))
+  rbind(
+    dplyr::mutate(marseille,
+                  ville = "Marseille",
+                  indic = 1),
+    dplyr::mutate(dijon,
+                  ville = "Dijon",
+                  indic = 1),
+    dplyr::mutate(sainte,
+                  ville = "Saint-Étienne",
+                  indic = 1),
+    dplyr::mutate(lille,
+                  ville = "Lille",
+                  indic = 1)
+  )
 
 
+# Graphique ----
 
-library(ggplot2)
 
 mes_couleurs <-
   RColorBrewer::brewer.pal(11, "RdBu")
 
 
 ggplot() +
-  geom_col(data = dplyr::mutate(temperatures,
-                         indic = 1) |> 
-             dplyr::slice_tail(n = 365),
+  geom_col(data = temperatures,
            aes(x = date2,
                y = indic,
                color = temp,
                fill = temp)) +
   scale_color_gradientn(colors = rev(mes_couleurs)) +
   scale_fill_gradientn(colors = rev(mes_couleurs)) +
+  facet_wrap(~ville,
+             nrow = 4) +
   theme_void() +
   theme(legend.position = "none")
 
