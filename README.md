@@ -16,4 +16,10 @@ Find in this repository random maps and charts that I make during my train trips
 
 ------------------------------------------------------------------------
 
+### [Accès aux plages](/Littoral/)
+
+![plages](/Littoral/Figures/acces_plage.png)
+
+------------------------------------------------------------------------
+
 </details>
