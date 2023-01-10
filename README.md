@@ -40,4 +40,11 @@ Find in this repository random maps and charts that I make during my train trips
 
 ------------------------------------------------------------------------
 
+### [Friends](/Friends/)
+
+![director](/Friends/director.png)
+![writter](/Friends/writter.png)
+
+------------------------------------------------------------------------
+
 </details>
