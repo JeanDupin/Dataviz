@@ -8,7 +8,7 @@ library(data.table)
 
 temps_acces <-
   fread("Littoral/Temps_acces_littoral.csv") |> 
-  mutate(duree = round(duree / 60),
+  mutate(duree = floor(duree / 60),
          duree = ifelse(duree >= 6,
                         6,
                         duree),
