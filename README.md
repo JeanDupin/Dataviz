@@ -28,9 +28,9 @@ Find in this repository random maps and charts that I make during my train trips
 
 ------------------------------------------------------------------------
 
-### [Patrick depuis 1900](/Saint%20%Patrick/)
+### [Patrick depuis 1900](/Saint%20Patrick/)
 
-![patrick](/Saint%20%Patrick/patrick.png)
+![patrick](/Saint%20Patrick/patrick.png)
 
 ------------------------------------------------------------------------
 
