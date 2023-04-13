@@ -1,0 +1,1 @@
+ffmpeg -r 30 -i "Population Density\Figures\%d.png" -c:v libx264 -crf 20 -preset slow -vf format=yuv420p -movflags +faststart "Population Density\animation.mp4"
