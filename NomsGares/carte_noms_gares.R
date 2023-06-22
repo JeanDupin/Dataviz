@@ -179,7 +179,7 @@ ggplot() +
   # Source
   annotate("richtext",
            -Inf, -Inf,
-           label = "<span style='font-family:montserratbold'>Source : </span><span style='font-family:montserratmedium'>SNCF - Gare de voyageurs</span><br><span style='font-family:montserratbold'>Traitements : </span><span style='font-family:montserratmedium'>Jean Dupin - @JeanDup1n</span>",
+           label = "<span style='font-family:montserratbold'>Source : </span><span style='font-family:montserratmedium'>SNCF - Gares de voyageurs</span><br><span style='font-family:montserratbold'>Traitements : </span><span style='font-family:montserratmedium'>Jean Dupin - @JeanDup1n</span>",
            hjust = 0, vjust = -.25,
            label.color = NA,
            fill = NA,
