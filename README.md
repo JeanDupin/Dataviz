@@ -47,6 +47,12 @@ Find in this repository random maps and charts that I make during my train trips
 
 <summary><b>Charts</b></summary>
 
+### [Marathon de Paris 2026](/Marathon%20de%20Paris%202026/)
+
+![marathon](/Marathon%20de%20Paris%202026/marathon_paris_2026.png)
+
+------------------------------------------------------------------------
+
 ### [Tour de France 2022](/Tour%20de%20France%202022/)
 
 ![tdf](/Tour%20de%20France%202022/letour.png)
