@@ -10,6 +10,12 @@ Find in this repository random maps and charts that I make during my train trips
 
 <summary><b>Maps</b></summary>
 
+### [Trafic SNCF](/Trafic%20SNCF/)
+
+![sncf](/Trafic%20SNCF/trains.gif)
+
+------------------------------------------------------------------------
+
 ### [Accès aux stations de ski](/Stations%20Ski/)
 
 ![ski](/Stations%20Ski/Figures/duree_trajet.png)
